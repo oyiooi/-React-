@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import MapContainer from './GoogleApiWrapper'
 
 class Map extends Component {
     render() {
@@ -8,7 +9,7 @@ class Map extends Component {
               <div className='buttonicon' onClick={this.props.showing}></div>
               <h1>Map</h1>
             </div>
-            <div id='map'></div>
+            <div id='map'><MapContainer></MapContainer></div>
           </div>
         )
     }
