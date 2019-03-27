@@ -19,16 +19,21 @@ body , .root {
   padding:0 0;
 }
 
+.App {
+  display:flex;
+  flex-flow:row;
+}
+
 #cloumn1 {
   width:380px;
   height:100vh;
   background:rgb(55, 52, 58);
-  float:left;
 }
 
 header {
   background:black;
   height:5rem;
+  width:380px;
   font-size:2rem;
   padding:0;
   color:gray;
@@ -74,6 +79,7 @@ ul li {
   height:100vh;
   background-color:gray;
   margin:0;
+  width:100%;
 }
 
 .map-hearder-container {
@@ -104,5 +110,5 @@ h1{
 }
 
 #map {
-  height:calc(100vh-4rem);
+  height:calc(100vh - 4rem);
 }
