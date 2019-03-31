@@ -9,7 +9,7 @@ class Map extends Component {
               <div className='buttonicon' onClick={this.props.showing}></div>
               <h1>Map</h1>
             </div>
-            <div id='map'><MapContainer></MapContainer></div>
+            <div id='map'><MapContainer google={this.props.google} placese={this.props.placese} ></MapContainer></div>
           </div>
         )
     }
