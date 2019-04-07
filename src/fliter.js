@@ -1,32 +1,24 @@
 import React,{Component} from 'react';
 
 class Fliter extends Component {
-
-  /*showinfowindow(place){
-    let locationmarkers=this.props.markerlocation;
-    let infowindow=new this.props.google.maps.InfoWindow();
-    for(let i=0;i<locationmarkers.length;i++){
-      if(locationmarkers[i].title===place.title){
-        locationmarkers[i].populateInfoWindow (locationmarkers[i].marker, infowindow)
-      }
-    }
-    
-  }*/
+  showInfowindow(place) {
+    place.populateInfoWindow(place.marker, place.props.largeInfowindow)
+}
 
   render() {
-    let placese=this.props.placese;
+    let places;this.props.places.length!==0?places=this.props.places:places=this.props.locationMarkers;
         if(this.props.showing){
             return (
                 <div id='cloumn1'>
                   <header className="App-header">Street Map</header>
                   <div className='fliter-container'>
-                    <select className='fliter' id='fliter' value={this.props.currentCate} onChange={(event)=>{this.props.updateCurrentCata(event)}} >
-                    {this.props.catagra.map((item)=><option id={item.index} value={item}>{item}</option>)}
+                    <select role='menu' aria-label='dropdowncategory' className='fliter' id='fliter' value={this.props.currentCate} onChange={(event)=>{this.props.updateCurrentCata(event)}} >
+                    {this.props.catagra.map((item)=><option key={item} id={item.index} value={item}>{item}</option>)}
                     </select>
                     <button className='fliter-button' onClick={this.props.updateplace}>Fliter</button>
-                     <ul className='place-list'>
-                        {placese.map((place)=><li id={place.title} value={place.title}>{place.title}</li>)}
-                     </ul>
+                    <ul role='listbox' className='place-list'>
+                      {places.map((place)=><li id={place.props.name} key={place.props.name} value={place.props.name} onClick={(e)=>this.showInfowindow(place)}>{place.props.name}</li>)}
+                    </ul>
                   </div>
                 </div>
                 )
